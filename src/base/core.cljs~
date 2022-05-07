@@ -1,0 +1,23 @@
+(ns base.core
+  (:require [rum.core :as rum]
+            [odoyle.rules :as o]
+            [components.rules.renders :as r]
+            [components.rules.interface :as cr]
+            [components.data.interface :as data]))
+
+(def initial-session
+  (-> (reduce o/add-rule (o/->session) (concat r/render-rules))
+      #_(o/insert ::ev/global {::ev/next-id 0
+                             ::ev/show-affirmation? false})
+      o/fire-rules))
+
+(def *rules-session (atom initial-session))
+
+
+(rum/defc app []
+  (r/app-root *rules-session))
+
+
+(defn ^:export main
+  []
+  (rum/hydrate (app) (js/document.querySelector "#app")))

@@ -1,0 +1,27 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src"]
+
+ :dependencies
+ [[binaryage/devtools "0.9.10"]
+  [proto-repl "0.3.1"]
+  [cljs-http "0.1.46"]
+  [net.sekao/odoyle-rules "0.8.0"]
+  [net.sekao/odoyle-rum "0.9.0"]
+  [rum "0.12.6"]
+  [herb "0.10.0"]]
+
+ :nrepl {:port 3333}
+
+ :builds
+ {:app {:target :browser
+        :output-dir "public/js"
+        :asset-path "/js"
+        :modules
+        {:main
+         {:entries [base.core]}}
+
+        :devtools
+        {:after-load  base.core/main
+         :http-root   "public"
+         :http-port   7777}}}}

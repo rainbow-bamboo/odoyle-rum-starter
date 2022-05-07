@@ -1,0 +1,55 @@
+.default-theme{
+    --bg-color: #FFF7E8;
+    --color: #000000;
+    --altBg1: #ffe4d1;
+    --altBg2: #ffc7cd;
+    --highlight: #006440;
+}
+
+.light-theme{
+    --bg-color: #FFF7E8;
+    --color: #000000;
+    --altBg1: #ffe4d1;
+    --altBg2: #ffc7cd;
+    --highlight: #006440;
+}
+
+.dark-theme{
+    --bg-color: #101D40;
+    --color: #FFF7E8;
+    --altBg1: #36205a;
+    --altBg2: #38524f;
+    --highlight: #83f0e8;
+    background-image: url('/public/css/patterns/grid.png');
+}
+
+.forest-theme{
+    --bg-color: #163E24;
+    --color: #fffefd;
+    --altBg1: #578A68;
+    --altBg2: #2E653E;
+    --highlight: #F1DB77;
+}
+
+.seaside-theme{
+    --bg-color: #feffeb;
+    --color: #000000;
+    --altBg1: #98f8ef;
+    --altBg2: #7adfec;
+    --highlight: #05668D;
+}
+
+
+/* When a user preference for a dark color-theme is set.
+If we manually set a theme other than default-theme, 
+this will not take effect*/
+@media (prefers-color-scheme: dark) {
+    .default-theme   {
+        --bg-color: #101D40; 
+        --color: #FFF7E8;
+        --altBg1: #36205a;
+        --altBg2: #38524f;
+        --highlight: #83f0e8;
+        background-image: url('/public/css/patterns/grid.png');
+    }
+  }
