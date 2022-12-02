@@ -19,4 +19,4 @@
 
 (defn ^:export main
   []
-  (rum/hydrate (app) (js/document.querySelector "#app")))
+  (rum/hydrate (app) (js/document.querySelector "#app"))) 
